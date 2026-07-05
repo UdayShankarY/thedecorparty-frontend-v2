@@ -24,3 +24,16 @@ export interface HomeProduct {
   badge?: string;
   badgeColor?: string;
 }
+
+export interface Slider {
+  _id: string;
+  image: string;
+  chip?: string;
+  headline: string;
+  subtext?: string;
+  gradient?: string;
+  ctaText?: string;
+  ctaLink?: string;
+  order: number;
+  active: boolean;
+}

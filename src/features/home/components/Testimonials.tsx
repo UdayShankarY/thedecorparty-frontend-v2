@@ -1,44 +1,42 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Star } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 import Container from "@/components/ui/container";
-import { Section } from "@/components/ui/section";
-import { P } from "@/components/ui/typography";
+import { SectionHeader } from "./SectionHeader";
 
-const testimonials = [
-  {
-    name: "Neha R.",
-    role: "Birthday planner",
-    quote: "The decor selection felt elevated and effortless. Everything arrived beautifully presented and transformed the whole venue.",
-  },
-  {
-    name: "Arjun S.",
-    role: "Wedding host",
-    quote: "The team understood our style instantly. The final look felt polished, modern, and completely on brand.",
-  },
-  {
-    name: "Meera P.",
-    role: "Corporate events lead",
-    quote: "We were able to create a premium experience without the usual stress. The service made a real difference.",
-  },
+const reviews = [
+  { name: "Neha R.", role: "Birthday party", rating: 5, quote: "Everything arrived beautifully presented and transformed the whole venue. Absolutely loved it!" },
+  { name: "Arjun S.", role: "Wedding decor", rating: 5, quote: "The team understood our style instantly. Polished, modern, and completely on brand." },
+  { name: "Meera P.", role: "Corporate event", rating: 5, quote: "Premium experience without the usual stress. The service made a real difference." },
+  { name: "Priya K.", role: "Anniversary setup", rating: 5, quote: "Stunning setup, delivered on time. Our guests couldn't stop complimenting the decor." },
+  { name: "Rahul M.", role: "Proposal decor", rating: 5, quote: "Made the most important moment of my life even more magical. Thank you!" },
 ];
 
 export function Testimonials() {
   return (
-    <Section title="What clients say" description="Trusted by hosts, planners, and modern event teams who value calm execution and beautiful design.">
+    <section className="space-y-4">
+      <SectionHeader title="What our customers say" subtitle="10,000+ happy celebrations and counting" />
       <Container>
-        <div className="grid gap-5 lg:grid-cols-3">
-          {testimonials.map((testimonial) => (
-            <Card key={testimonial.name} className="border-slate-200/70 bg-white/80">
-              <CardHeader>
-                <CardTitle>{testimonial.name}</CardTitle>
-                <p className="text-sm text-slate-500">{testimonial.role}</p>
-              </CardHeader>
-              <CardContent>
-                <P className="text-sm leading-7">“{testimonial.quote}”</P>
-              </CardContent>
-            </Card>
-          ))}
+        <div className="overflow-x-auto pb-3 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="flex gap-4">
+            {reviews.map((r) => (
+              <Card key={r.name} className="w-64 shrink-0 border-slate-200/70 bg-white/80 sm:w-72">
+                <CardContent className="p-4 space-y-2">
+                  <div className="flex gap-0.5">
+                    {Array.from({ length: r.rating }).map((_, i) => (
+                      <Star key={i} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
+                    ))}
+                  </div>
+                  <p className="text-sm leading-relaxed text-slate-600">"{r.quote}"</p>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-900">{r.name}</p>
+                    <p className="text-xs text-slate-400">{r.role}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </Container>
-    </Section>
+    </section>
   );
 }

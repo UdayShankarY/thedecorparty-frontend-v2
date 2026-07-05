@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { navigationItems } from "@/constants/navigation";
 import { cn } from "@/lib/utils";
 
+
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -53,7 +54,7 @@ export function Navbar() {
             <Search className="mr-2 h-4 w-4 text-slate-500" />
             <Input placeholder="Search decor" className="h-8 w-40 border-0 bg-transparent px-0 shadow-none focus:ring-0" />
           </div>
-          <Button variant="outline" className="rounded-full">
+          <Button variant="secondary" className="rounded-full">
             <Sparkles className="mr-2 h-4 w-4" />
             AI Assistant
           </Button>
@@ -71,19 +72,35 @@ export function Navbar() {
           </Button>
         </div>
 
-        <button className="inline-flex items-center justify-center rounded-full p-2 text-slate-700 lg:hidden" onClick={() => setIsOpen(true)}>
-          <Menu className="h-5 w-5" />
-        </button>
+        {/* Mobile icon cluster: Search + Cart + Hamburger */}
+        <div className="flex items-center gap-0.5 lg:hidden">
+          <Button variant="icon" asChild aria-label="Search">
+            <Link to="/products"><Search className="h-5 w-5" /></Link>
+          </Button>
+          <Button variant="icon" asChild aria-label="Cart">
+            <Link to="/cart"><ShoppingCart className="h-5 w-5" /></Link>
+          </Button>
+          <Button variant="icon" onClick={() => setIsOpen(true)} aria-label="Open menu">
+            <Menu className="h-5 w-5" />
+          </Button>
+        </div>
+      </div>
+
+      {/* Mobile search bar — always visible below icon row */}
+      <div className="px-4 pb-1.5 pt-1 lg:hidden">
+        <div className="flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2">
+          <Search className="h-4 w-4 shrink-0 text-slate-400" />
+          <Input
+            placeholder="Search decorations, packages..."
+            className="h-7 border-0 bg-transparent px-0 text-sm shadow-none focus:ring-0"
+          />
+        </div>
       </div>
 
       <AnimatePresence>
         {isOpen ? (
           <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="border-t border-slate-200 bg-white/95 px-4 py-4 shadow-lg lg:hidden">
             <div className="space-y-3">
-              <div className="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-2">
-                <Search className="h-4 w-4 text-slate-500" />
-                <Input placeholder="Search decor" className="h-8 border-0 bg-transparent px-0 shadow-none focus:ring-0" />
-              </div>
               <div className="space-y-1">
                 {navigationItems.map((item) => (
                   <NavLink key={item.href} to={item.href} onClick={() => setIsOpen(false)} className={({ isActive }) => cn("block rounded-2xl px-3 py-2 text-sm font-medium", isActive ? "bg-slate-900 text-white" : "text-slate-600 hover:bg-slate-100") }>
@@ -96,15 +113,13 @@ export function Navbar() {
                   <p className="text-sm font-semibold text-slate-900">Profile & orders</p>
                   <p className="text-xs text-slate-500">Manage your account quickly</p>
                 </div>
-                <Button variant="outline" className="rounded-full" onClick={() => setIsOpen(false)} asChild>
+                <Button variant="secondary" className="rounded-full" onClick={() => setIsOpen(false)} asChild>
                   <Link to="/profile">Open</Link>
                 </Button>
               </div>
-              <div className="flex justify-end">
-                <button className="rounded-full p-2 text-slate-600" onClick={() => setIsOpen(false)}>
-                  <X className="h-5 w-5" />
-                </button>
-              </div>
+              <Button variant="icon" onClick={() => setIsOpen(false)} aria-label="Close menu">
+                <X className="h-5 w-5" />
+              </Button>
             </div>
           </motion.div>
         ) : null}
