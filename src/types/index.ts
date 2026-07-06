@@ -13,12 +13,17 @@ export interface HomeProduct {
   name: string;
   categoryName: string;
   categoryId?: string;
+  subcategory?: string;
   price: number;
   originalPrice?: number;
   image?: string;
+  moreImages?: string[];
   description: string;
+  inclusions?: string[];
+  addOns?: { name: string; price: number }[];
   rating?: number;
   reviewCount?: number;
+  orderCount?: number;
   active: boolean;
   featured?: boolean;
   badge?: string;

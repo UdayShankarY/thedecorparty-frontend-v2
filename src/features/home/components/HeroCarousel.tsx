@@ -49,10 +49,10 @@ export function HeroCarousel({ sliders, loading = false }: HeroCarouselProps) {
     return (
       <>
         {/* Mobile: full-bleed rectangular skeleton */}
-        <Skeleton className="h-[230px] w-full rounded-none sm:hidden" />
+        <Skeleton className="h-[215px] w-full rounded-none sm:hidden" />
         {/* Desktop: contained with rounded corners */}
         <div className="mx-auto hidden max-w-7xl px-6 sm:block lg:px-8">
-          <Skeleton className="h-[420px] w-full rounded-[2rem] lg:h-[500px]" />
+          <Skeleton className="h-[360px] w-full rounded-[2rem] lg:h-[420px]" />
         </div>
       </>
     );
@@ -71,8 +71,7 @@ export function HeroCarousel({ sliders, loading = false }: HeroCarouselProps) {
   return (
     /* Mobile: full-bleed, no rounding. Desktop: contained, rounded */
     <div
-      className="relative overflow-hidden rounded-none sm:mx-auto sm:max-w-7xl sm:rounded-[2rem] sm:px-6 sm:shadow-[0_20px_60px_-20px_rgba(15,23,42,0.35)] lg:px-8"
-      style={{ height: "clamp(220px, 55vw, 500px)" }}
+      className="relative h-[215px] overflow-hidden rounded-none sm:mx-auto sm:h-[clamp(200px,48vw,420px)] sm:max-w-7xl sm:rounded-[2rem] sm:px-6 sm:shadow-[0_20px_60px_-20px_rgba(15,23,42,0.35)] lg:px-8"
       onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; }}
       onTouchEnd={(e) => {
         const diff = touchStartX.current - e.changedTouches[0].clientX;
@@ -112,7 +111,7 @@ export function HeroCarousel({ sliders, loading = false }: HeroCarouselProps) {
                 {slide.chip}
               </span>
             )}
-            <h1 className="max-w-2xl text-lg font-bold leading-tight sm:text-4xl lg:text-5xl">
+            <h1 className="max-w-2xl text-lg font-bold leading-tight sm:text-3xl lg:text-4xl">
               {slide.headline}
             </h1>
             {/* Subtext hidden on mobile — keeps hero clean */}

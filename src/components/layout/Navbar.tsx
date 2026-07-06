@@ -50,19 +50,16 @@ export function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-2 lg:flex">
-          <div className="flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-2">
-            <Search className="mr-2 h-4 w-4 text-slate-500" />
-            <Input placeholder="Search decor" className="h-8 w-40 border-0 bg-transparent px-0 shadow-none focus:ring-0" />
-          </div>
-          <Button variant="secondary" className="rounded-full">
-            <Sparkles className="mr-2 h-4 w-4" />
-            AI Assistant
+          <Button variant="ghost" asChild className="rounded-full">
+            <Link to="/products" className="gap-2">
+              <Search className="h-4 w-4" />
+              <span className="text-sm">Search</span>
+            </Link>
           </Button>
           <Button variant="ghost" asChild className="rounded-full">
             <Link to="/cart" className="relative">
               <ShoppingCart className="h-4 w-4" />
               <span className="ml-2 text-sm">Cart</span>
-              <span className="ml-2 rounded-full bg-violet-600 px-2 py-0.5 text-[10px] font-semibold text-white">2</span>
             </Link>
           </Button>
           <Button variant="ghost" asChild className="rounded-full">

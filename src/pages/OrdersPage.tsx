@@ -1,16 +1,21 @@
+import { Package } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/container";
-import { Section } from "@/components/ui/section";
-import { H1, P } from "@/components/ui/typography";
 
 export default function OrdersPage() {
   return (
     <Container>
-      <Section title="Orders" description="A refined history experience is now scaffolded for future expansion.">
-        <div className="rounded-[1.5rem] border border-slate-200 bg-white p-8 shadow-sm">
-          <H1 className="text-2xl font-semibold">Orders placeholder</H1>
-          <P className="mt-3 text-slate-600">The routing and layout are in place so order data can be surfaced cleanly later.</P>
+      <div className="flex flex-col items-center justify-center py-20 text-center">
+        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-violet-50">
+          <Package className="h-7 w-7 text-violet-600" />
         </div>
-      </Section>
+        <h1 className="text-xl font-bold text-slate-900">No orders yet</h1>
+        <p className="mt-2 text-sm text-slate-500">Your booked decorations will appear here.</p>
+        <Button variant="primary" asChild className="mt-6">
+          <Link to="/products">Browse Products</Link>
+        </Button>
+      </div>
     </Container>
   );
 }

@@ -2,7 +2,6 @@ import { Categories } from "@/features/home/components/Categories";
 import { FeaturedProducts } from "@/features/home/components/FeaturedProducts";
 import { Hero } from "@/features/home/components/Hero";
 import { PackageSection } from "@/features/home/components/PackageSection";
-import { WhyChooseUs } from "@/features/home/components/WhyChooseUs";
 import { useHomeData } from "@/features/home/hooks/useHomeData";
 
 export default function HomePage() {
@@ -15,26 +14,22 @@ export default function HomePage() {
       <FeaturedProducts products={products} loading={loading} />
       <PackageSection
         title="Birthday Packages"
-        subtitle="Make their day unforgettable"
         keyword="birthday"
         products={products}
         loading={loading}
       />
       <PackageSection
         title="Anniversary Packages"
-        subtitle="Celebrate love in style"
         keyword="anniversary"
         products={products}
         loading={loading}
       />
       <PackageSection
         title="Proposal Setups"
-        subtitle="Pop the question perfectly"
         keyword="proposal"
         products={products}
         loading={loading}
       />
-      <WhyChooseUs />
     </div>
   );
 }

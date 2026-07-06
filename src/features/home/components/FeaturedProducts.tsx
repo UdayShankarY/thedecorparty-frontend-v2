@@ -12,11 +12,7 @@ export function FeaturedProducts({ products, loading }: FeaturedProductsProps) {
 
   return (
     <section className="space-y-4">
-      <SectionHeader
-        title="Trending Decorations"
-        subtitle="Most loved picks this season"
-        viewAllHref="/products"
-      />
+      <SectionHeader title="Featured Decorations" viewAllHref="/products" />
       <ProductSlider products={trending} loading={loading} />
     </section>
   );

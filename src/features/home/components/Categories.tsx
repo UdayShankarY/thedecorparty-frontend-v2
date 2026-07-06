@@ -13,9 +13,9 @@ function OccasionCard({ category }: { category: HomeCategory }) {
   return (
     <Link
       to="/products"
-      className="group flex w-28 shrink-0 flex-col items-center gap-1 [scroll-snap-align:start] sm:w-36 sm:gap-2"
+      className="group flex w-28 shrink-0 flex-col items-center gap-1 [scroll-snap-align:start] sm:w-36 sm:gap-2 lg:w-32"
     >
-      <div className="relative h-24 w-24 overflow-hidden rounded-full border-2 border-slate-200 bg-gradient-to-br from-violet-500 via-fuchsia-400 to-amber-300 shadow-sm transition group-hover:border-violet-400 group-hover:shadow-md group-active:scale-95 sm:h-32 sm:w-32">
+      <div className="relative h-24 w-24 overflow-hidden rounded-full border-2 border-slate-200 bg-gradient-to-br from-violet-500 via-fuchsia-400 to-amber-300 shadow-sm transition group-hover:border-violet-400 group-hover:shadow-md group-active:scale-95 sm:h-32 sm:w-32 lg:h-28 lg:w-28 xl:h-32 xl:w-32">
         {category.image ? (
           <img
             src={category.image}
@@ -49,7 +49,7 @@ export function Categories({ categories, loading }: CategoriesProps) {
             {loading
               ? Array.from({ length: 6 }).map((_, i) => (
                   <div key={i} className="flex w-28 shrink-0 flex-col items-center gap-1 [scroll-snap-align:start] sm:w-36 sm:gap-2">
-                    <Skeleton className="h-24 w-24 rounded-full sm:h-32 sm:w-32" />
+                    <Skeleton className="h-24 w-24 rounded-full sm:h-32 sm:w-32 lg:h-28 lg:w-28" />
                     <Skeleton className="h-3 w-20" />
                   </div>
                 ))

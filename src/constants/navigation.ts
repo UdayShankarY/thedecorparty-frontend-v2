@@ -6,18 +6,12 @@ export const navigationItems = [
 ];
 
 export const footerLinks = {
-  company: [
-    { label: "About us", href: "/" },
-    { label: "Our story", href: "/products" },
-    { label: "Contact", href: "/" },
+  shop: [
+    { label: "All Products", href: "/products" },
+    { label: "Cart", href: "/cart" },
+    { label: "Orders", href: "/orders" },
   ],
   support: [
-    { label: "Shipping", href: "/" },
-    { label: "Returns", href: "/" },
-    { label: "FAQs", href: "/" },
-  ],
-  legal: [
-    { label: "Privacy", href: "/" },
-    { label: "Terms", href: "/" },
+    { label: "My Account", href: "/profile" },
   ],
 };

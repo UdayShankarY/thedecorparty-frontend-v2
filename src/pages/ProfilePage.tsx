@@ -1,16 +1,16 @@
+import { UserRound } from "lucide-react";
 import Container from "@/components/ui/container";
-import { Section } from "@/components/ui/section";
-import { H1, P } from "@/components/ui/typography";
 
 export default function ProfilePage() {
   return (
     <Container>
-      <Section title="Profile" description="A professional account shell is now ready for personalization.">
-        <div className="rounded-[1.5rem] border border-slate-200 bg-white p-8 shadow-sm">
-          <H1 className="text-2xl font-semibold">Profile placeholder</H1>
-          <P className="mt-3 text-slate-600">Authentication and profile data handling remain untouched while the UI is upgraded.</P>
+      <div className="flex flex-col items-center justify-center py-20 text-center">
+        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-violet-50">
+          <UserRound className="h-7 w-7 text-violet-600" />
         </div>
-      </Section>
+        <h1 className="text-xl font-bold text-slate-900">Account</h1>
+        <p className="mt-2 text-sm text-slate-500">Sign in and profile management coming soon.</p>
+      </div>
     </Container>
   );
 }

@@ -1,8 +1,10 @@
+import { memo } from "react";
 import { Heart, ShoppingBag, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 import type { HomeProduct } from "@/types";
 
 const fmt = new Intl.NumberFormat("en-IN", {
@@ -18,13 +20,14 @@ function calcDiscount(price: number, originalPrice?: number): number | null {
 
 interface ProductCardProps {
   product: HomeProduct;
+  className?: string;
 }
 
-export function ProductCard({ product }: ProductCardProps) {
+export const ProductCard = memo(function ProductCard({ product, className }: ProductCardProps) {
   const discount = calcDiscount(product.price, product.originalPrice);
 
   return (
-    <div className="group relative w-[72vw] shrink-0 sm:w-64">
+    <div className={cn("group relative w-[72vw] shrink-0 sm:w-64", className)}>
       {/* Wishlist — icon button, top-right overlay */}
       <Button
         variant="icon"
@@ -38,7 +41,7 @@ export function ProductCard({ product }: ProductCardProps) {
       <Link to={`/product/${product._id}`} className="block">
         <Card className="overflow-hidden border-slate-200/70 bg-white transition-transform duration-200 active:scale-[0.97] sm:hover:scale-[1.02] sm:hover:shadow-lg">
           {/* Image */}
-          <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
+          <div className="relative aspect-[4/3] overflow-hidden bg-slate-100 lg:aspect-[3/2]">
             {product.image ? (
               <img
                 src={product.image}
@@ -106,4 +109,4 @@ export function ProductCard({ product }: ProductCardProps) {
       </Link>
     </div>
   );
-}
+});

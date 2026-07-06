@@ -4,6 +4,8 @@ import AdminLayout from "@/layouts/AdminLayout";
 import HomePage from "@/pages/HomePage";
 import ProductsPage from "@/pages/ProductsPage";
 import ProductDetailPage from "@/pages/ProductDetailPage";
+import BookingDetailsPage from "@/pages/BookingDetailsPage";
+import BookingSummaryPage from "@/pages/BookingSummaryPage";
 import CartPage from "@/pages/CartPage";
 import CheckoutPage from "@/pages/CheckoutPage";
 import ProfilePage from "@/pages/ProfilePage";
@@ -20,6 +22,8 @@ export default function AppRoutes() {
         <Route path="/" element={<HomePage />} />
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/product/:id" element={<ProductDetailPage />} />
+        <Route path="/product/:id/booking" element={<BookingDetailsPage />} />
+        <Route path="/product/:id/booking/summary" element={<BookingSummaryPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/profile" element={<ProfilePage />} />
